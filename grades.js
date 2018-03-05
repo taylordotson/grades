@@ -41,8 +41,9 @@ console.log("lowest", lowHigh[0]);
 console.log("highest", lowHigh[lowHigh.length - 1]);
 
 var currentGradeCount = 0;
-var mostFrequent = ""
-var leastFrequent;
+var mostFrequent = "";
+var leastFrequent = [];
+var newGradeCount = 100;
 
 for(var x in grades) {
     if (grades[x] > currentGradeCount) {
@@ -51,9 +52,18 @@ for(var x in grades) {
     }else if (grades[x] === currentGradeCount){
         mostFrequent.push(x);
     }
+    
+    if (grades [x] < newGradeCount) {
+        leastFrequent = [x];
+        newGradeCount = grades[x];
+    } else if (grades[x] === newGradeCount) {
+        leastFrequent.push(x);
+    }
+    
+    
 }
 console.log("most frequent", mostFrequent);
-
+console.log("least frequent", leastFrequent);
 
 
 console.log(lowHigh);
